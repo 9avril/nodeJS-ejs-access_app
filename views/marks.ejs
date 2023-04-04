@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Marks of type clocks</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: antiquewhite;
+            font-family: Arial;
+        }
+        h1 {
+            padding-left: 10px;
+        }
+        ul {
+            padding-top: -10px;
+            list-style-type: none;
+            padding-left: 10px;
+        }
+
+        li {
+            font-size: large;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+    </style>
+
+</head>
+<body>
+<h1>Marks of <%= type %> clocks</h1>
+<form method="get">
+    <label for="type">Type:</label>
+    <input type="text" name="type" id="type" value="<%= type %>">
+    <button type="submit">Submit</button>
+</form>
+<ul>
+    <% for (let i = 0; i < marks.length; i++) { %>
+        <li><%= marks[i].mark %></li>
+    <% } %>
+</ul>
+</body>
+</html>

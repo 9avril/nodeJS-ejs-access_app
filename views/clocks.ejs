@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clocks</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: antiquewhite;
+            font-family: Arial;
+        }
+        h1 {
+            padding-left: 15px;
+        }
+        ul {
+            padding-top: -10px;
+            list-style-type: none;
+            padding-left: 15px;
+        }
+
+        li {
+            font-size: large;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+    </style>
+
+</head>
+<body>
+<h1>Clocks made in <%= country %>:</h1>
+<br>
+<form action="/clocks" method="get">
+    <label for="country">Country:</label>
+    <input type="text" id="country" name="country" value="<%= country %>">
+    <button type="submit">Search</button>
+</form>
+<ul>
+    <% for (let i = 0; i < results.length; i++) { %>
+        <li><%= results[i].mark %></li>
+    <% } %>
+</ul>
+</body>
+</html>

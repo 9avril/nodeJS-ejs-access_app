@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mechanical Clocks</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: antiquewhite;
+            font-family: Arial;
+        }
+
+        h1 {
+            padding-left: 10px;
+        }
+
+        table {
+            font-size: large;
+            padding-left: 15px;
+        }
+
+        th {
+            padding-right: 10px;
+        }
+
+        td {
+            padding-right: 20px;
+            text-align: center;
+        }
+        input[type="text"] {
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+    </style>
+
+</head>
+<body>
+<h1>Mechanical Clocks with Price not Exceeding <%= maxPrice %> </h1>
+<form method="get">
+    <label for="max_price">Max Price:</label>
+    <input type="number" name="max_price" id="max_price" value="<%= maxPrice %>">
+    <button type="submit">Submit</button>
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>Mark</th>
+        <th>Type</th>
+        <th>Price</th>
+        <th>Count</th>
+        <th>ID_Developer</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% clock.forEach(function(clock) { %>
+        <tr>
+            <td><%= clock.mark %></td>
+            <td><%= clock.type %></td>
+            <td><%= clock.price %></td>
+            <td><%= clock.count %></td>
+            <td><%= clock.id_developer %></td>
+        </tr>
+    <% }); %>
+    </tbody>
+</table>
+</body>
+</html>
